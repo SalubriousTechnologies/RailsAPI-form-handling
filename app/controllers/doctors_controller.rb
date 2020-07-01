@@ -47,6 +47,7 @@ class DoctorsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def doctor_params
-      params.require(:doctor).permit(:name, :dob, :fees, revenue_share_attributes: [:user_share])
+      params.require(:doctor).permit(:name, :dob, :fees, :document, 
+                                     revenue_share_attributes: [:user_share])
     end
 end
