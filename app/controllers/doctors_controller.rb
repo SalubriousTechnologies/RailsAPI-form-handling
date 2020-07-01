@@ -5,7 +5,7 @@ class DoctorsController < ApplicationController
   def index
     @doctors = Doctor.all
 
-    render json: @doctors
+    render json: @doctors, include: :revenue_share
   end
 
   # GET /doctors/1
@@ -15,6 +15,7 @@ class DoctorsController < ApplicationController
 
   # POST /doctors
   def create
+    byebug
     @doctor = Doctor.new(doctor_params)
 
     if @doctor.save
@@ -46,6 +47,6 @@ class DoctorsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def doctor_params
-      params.require(:doctor).permit(:name, :dob, :fees)
+      params.require(:doctor).permit(:name, :dob, :fees, revenue_share_attributes: [:user_share])
     end
 end
