@@ -69,6 +69,11 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
+  # Use time_zone for database
+  config.time_zone = 'Mumbai'
+  config.active_record.default_timezone = :local
+  config.active_record.time_zone_aware_attributes = false
+
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
