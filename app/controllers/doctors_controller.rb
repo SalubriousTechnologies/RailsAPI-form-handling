@@ -15,7 +15,6 @@ class DoctorsController < ApplicationController
 
   # POST /doctors
   def create
-    byebug
     @doctor = Doctor.new(doctor_params)
 
     if @doctor.save
@@ -47,7 +46,7 @@ class DoctorsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def doctor_params
-      params.require(:doctor).permit(:name, :dob, :fees, :document, 
+      params.require(:doctor).permit(:name, :dob, :fees, documents: [], 
                                      revenue_share_attributes: [:user_share])
     end
 end

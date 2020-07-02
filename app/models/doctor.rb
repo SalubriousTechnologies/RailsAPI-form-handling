@@ -3,5 +3,5 @@ class Doctor < ApplicationRecord
   validates :fees, presence: true
   has_one :revenue_share, inverse_of: :doctor, dependent: :destroy
   accepts_nested_attributes_for :revenue_share
-  has_one_attached :document
+  has_many_attached :documents
 end
