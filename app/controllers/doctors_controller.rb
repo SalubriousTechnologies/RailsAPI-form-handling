@@ -5,7 +5,7 @@ class DoctorsController < ApplicationController
   def index
     @doctors = Doctor.all
 
-    render json: @doctors, include: :revenue_share
+    render json: @doctors, methods: :documents_url, include: :revenue_share
   end
 
   # GET /doctors/1
