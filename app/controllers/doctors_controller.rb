@@ -15,9 +15,8 @@ class DoctorsController < ApplicationController
 
   # POST /doctors
   def create
-    params[:doctor][:revenue_share_attributes][:status] = 1
     @doctor = Doctor.new(doctor_params)    
-
+    @doctor.revenue_share.status = 1
     if @doctor.save
       render json: @doctor, status: :created, location: @doctor
     else
@@ -47,6 +46,6 @@ class DoctorsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def doctor_params
-      params.require(:doctor).permit(:name, :dob, :fees, documents: [], revenue_share_attributes: [:user_share, :status])
+      params.require(:doctor).permit(:name, :dob, :fees, documents: [], revenue_share_attributes: [:user_share])
     end
 end
