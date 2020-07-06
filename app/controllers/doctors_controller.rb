@@ -16,8 +16,8 @@ class DoctorsController < ApplicationController
   # POST /doctors
   def create
     @doctor = Doctor.new(doctor_params)    
+    @doctor.revenue_share.status = 1
     if @doctor.save
-      @doctor.revenue_share.update(status: 1)
       render json: @doctor, status: :created, location: @doctor
     else
       render json: @doctor.errors, status: :unprocessable_entity
