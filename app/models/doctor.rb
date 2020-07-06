@@ -6,8 +6,14 @@ class Doctor < ApplicationRecord
   has_many_attached :documents
 
   def documents_url
-    if self.documents.attached?
-      self.documents.map { |document| document.service_url.split('?')[0] }
+    if documents.attached?
+      documents.map { |document| signed_url_of_s3_object(document.blob.key, 600) }
     end
+  end
+
+  def signed_url_of_s3_object(blob_key, expiration_time_in_minutes)
+    bucket = Aws::S3::Bucket.new(Rails.application.credentials.dig(:aws, :bucket))
+    object = bucket.object(blob_key)
+    object.presigned_url(:get, expires_in: expiration_time_in_minutes)
   end
 end
