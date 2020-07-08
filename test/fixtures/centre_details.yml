@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  store_code: MyString
+  centre_title: MyString
+  centre_address: MyString
+  centre_type: MyString
+  fixed_payment: 9.99
+  revenue_share: 9.99
+  status: 1
+
+two:
+  store_code: MyString
+  centre_title: MyString
+  centre_address: MyString
+  centre_type: MyString
+  fixed_payment: 9.99
+  revenue_share: 9.99
+  status: 1

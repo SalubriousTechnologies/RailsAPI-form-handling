@@ -1,0 +1,95 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  username: MyString
+  password_digest: MyString
+  email: MyString
+  mobile: 
+  alternate_contact_no: 
+  gender: MyString
+  dob: 2020-07-06
+  address: MyString
+  city: one
+  state: one
+  country: one
+  pincode: 1
+  default_language: MyString
+  doctor_category: one
+  fee: 1.5
+  role: MyString
+  store_code: MyString
+  zoom_id: MyString
+  profile_photo: MyString
+  designation: MyString
+  medical_registration_no: MyString
+  registration_state: MyString
+  registration_year: 1
+  work_experience: MyText
+  detailed_experience: MyText
+  awards_n_achievements: MyText
+  summary: MyText
+  is_internal_doctor: 1
+  is_email_confirmed: 1
+  is_verified: 1
+  is_approved: 1
+  is_editable: 1
+  is_tnc_accepted: 1
+  is_qualified_mso: 1
+  status: 1
+  confirmation_token: MyString
+  confirmed_at: 2020-07-06 19:29:05
+  confirmation_sent_at: 2020-07-06 19:29:05
+  reset_password_token: MyString
+  reset_password_sent_at: 2020-07-06 19:29:05
+  auth_token: MyString
+  auth_token_expiry: 2020-07-06 19:29:05
+  created_by: 
+  approved_by: 
+
+two:
+  name: MyString
+  username: MyString
+  password_digest: MyString
+  email: MyString
+  mobile: 
+  alternate_contact_no: 
+  gender: MyString
+  dob: 2020-07-06
+  address: MyString
+  city: two
+  state: two
+  country: two
+  pincode: 1
+  default_language: MyString
+  doctor_category: two
+  fee: 1.5
+  role: MyString
+  store_code: MyString
+  zoom_id: MyString
+  profile_photo: MyString
+  designation: MyString
+  medical_registration_no: MyString
+  registration_state: MyString
+  registration_year: 1
+  work_experience: MyText
+  detailed_experience: MyText
+  awards_n_achievements: MyText
+  summary: MyText
+  is_internal_doctor: 1
+  is_email_confirmed: 1
+  is_verified: 1
+  is_approved: 1
+  is_editable: 1
+  is_tnc_accepted: 1
+  is_qualified_mso: 1
+  status: 1
+  confirmation_token: MyString
+  confirmed_at: 2020-07-06 19:29:05
+  confirmation_sent_at: 2020-07-06 19:29:05
+  reset_password_token: MyString
+  reset_password_sent_at: 2020-07-06 19:29:05
+  auth_token: MyString
+  auth_token_expiry: 2020-07-06 19:29:05
+  created_by: 
+  approved_by: 

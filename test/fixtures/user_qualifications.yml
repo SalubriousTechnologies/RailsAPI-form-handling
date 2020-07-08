@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  qualification: one
+  degree: MyString
+  university: MyString
+  document: MyString
+  status: 1
+  verified_by: 
+
+two:
+  user: two
+  qualification: two
+  degree: MyString
+  university: MyString
+  document: MyString
+  status: 1
+  verified_by: 
