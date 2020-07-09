@@ -13,12 +13,12 @@ class UserIdProofSerializer < ActiveModel::Serializer
     end
   end
 
-  # def verified_by
-  #   if !object[:verified_by].blank?
-  #     user = User.find(object[:verified_by])
-  #     { id: user.id, name: user.name }
-  #   end
-  # end
+  def verified_by
+    if !object[:verified_by].blank?
+      user = User.find(object[:verified_by])
+      { id: user.id, name: user.name }
+    end
+  end
 
   def document
     if object.documents.attached?
