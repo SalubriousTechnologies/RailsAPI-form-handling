@@ -16,9 +16,8 @@ class UsersController < ApplicationController
   # POST /users
   def create
     require 'ostruct'
-    current_user = OpenStruct.new({id: 1})
-    
-    
+    current_user = OpenStruct.new({id: 7})
+
     @user = User.new(user_params)
     @user.country_id = 99
     @user.is_email_confirmed = 1
@@ -37,7 +36,7 @@ class UsersController < ApplicationController
       @user.is_qualified_mso = 0
     end
 
-    @user.centre.status = 1
+    @user.centre.status = 1 if @user.centre
     @user.user_qualifications.each do |qualification|
       qualification.status = 1
       qualification.verified_by = current_user.id
@@ -76,6 +75,7 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:name, :username, :password, :password_confirmation, :email, :mobile, :alternate_contact_no, :gender, :dob, :address, :city_id, :state_id, :country_id, :pincode, :default_language, :doctor_category_id, :fee, :role, :profile_photo, :designation, :medical_registration_no, :registration_state, :registration_year, :work_experience, :detailed_experience, :awards_n_achievements, :summary, user_qualifications_attributes: [:qualification_id, :degree, :university, :documents], user_id_proofs_attributes: [:id_proof_id, :documents], :centre_attributes => {})
+      # params.require(:user).permit(:name, :username, :password, :password_confirmation, :email, :mobile, :alternate_contact_no, :gender, :dob, :address, :city_id, :state_id, :country_id, :pincode, :default_language, :doctor_category_id, :fee, :role, :profile_photo, :designation, :medical_registration_no, :registration_state, :registration_year, :work_experience, :detailed_experience, :awards_n_achievements, :summary, user_qualifications_attributes: [:qualification_id, :degree, :university, :documents], user_id_proofs_attributes: [:id_proof_id, :documents], :centre_attributes => {})
+      params.require(:user).permit(:name, :username, :password, :password_confirmation, :email, :mobile, :alternate_contact_no, :gender, :dob, :address, :city_id, :state_id, :country_id, :pincode, :default_language, :doctor_category_id, :fee, :role, :profile_photo, :designation, :medical_registration_no, :registration_state, :registration_year, :work_experience, :detailed_experience, :awards_n_achievements, :summary, :centre_id, user_qualifications_attributes: [:qualification_id, :degree, :university, :documents], user_id_proofs_attributes: [:id_proof_id, :documents])
     end
 end
