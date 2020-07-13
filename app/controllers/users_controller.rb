@@ -15,9 +15,6 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    require 'ostruct'
-    current_user = OpenStruct.new({id: 7})
-
     @user = User.new(user_params)
     @user.country_id = 99
     @user.is_email_confirmed = 1
