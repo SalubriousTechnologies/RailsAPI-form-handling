@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_13_045100) do
+ActiveRecord::Schema.define(version: 2020_07_13_065004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,6 +109,32 @@ ActiveRecord::Schema.define(version: 2020_07_13_045100) do
     t.index ["doctor_id"], name: "index_revenue_shares_on_doctor_id"
   end
 
+  create_table "role_sections", force: :cascade do |t|
+    t.bigint "role_id", null: false
+    t.bigint "section_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["role_id"], name: "index_role_sections_on_role_id"
+    t.index ["section_id"], name: "index_role_sections_on_section_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "role"
+    t.string "role_title"
+    t.integer "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "sections", force: :cascade do |t|
+    t.string "section"
+    t.string "section_title"
+    t.string "visibility"
+    t.integer "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "states", force: :cascade do |t|
     t.bigint "country_id", null: false
     t.string "state_code"
@@ -141,6 +167,17 @@ ActiveRecord::Schema.define(version: 2020_07_13_045100) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["qualification_id"], name: "index_user_qualifications_on_qualification_id"
     t.index ["user_id"], name: "index_user_qualifications_on_user_id"
+  end
+
+  create_table "user_role_sections", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "role_id", null: false
+    t.bigint "section_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["role_id"], name: "index_user_role_sections_on_role_id"
+    t.index ["section_id"], name: "index_user_role_sections_on_section_id"
+    t.index ["user_id"], name: "index_user_role_sections_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -200,11 +237,16 @@ ActiveRecord::Schema.define(version: 2020_07_13_045100) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cities", "states"
   add_foreign_key "revenue_shares", "doctors"
+  add_foreign_key "role_sections", "roles"
+  add_foreign_key "role_sections", "sections"
   add_foreign_key "states", "countries"
   add_foreign_key "user_id_proofs", "id_proofs"
   add_foreign_key "user_id_proofs", "users"
   add_foreign_key "user_qualifications", "qualifications"
   add_foreign_key "user_qualifications", "users"
+  add_foreign_key "user_role_sections", "roles"
+  add_foreign_key "user_role_sections", "sections"
+  add_foreign_key "user_role_sections", "users"
   add_foreign_key "users", "centres"
   add_foreign_key "users", "cities"
   add_foreign_key "users", "countries"

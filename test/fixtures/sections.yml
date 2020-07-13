@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  section: MyString
+  section_title: MyString
+  visibility: MyString
+  status: 1
+
+two:
+  section: MyString
+  section_title: MyString
+  visibility: MyString
+  status: 1

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :sections
+  resources :roles
   resources :users
   resources :doctors
   resources :centres
