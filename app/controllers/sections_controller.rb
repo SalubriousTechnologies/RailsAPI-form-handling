@@ -5,12 +5,12 @@ class SectionsController < ApplicationController
   def index
     @sections = Section.all
 
-    render json: @sections
+    render json: SectionSerializer.new(@sections).serialized_json
   end
 
   # GET /sections/1
   def show
-    render json: @section
+    render json: SectionSerializer.new(@section).serialized_json
   end
 
   # POST /sections

@@ -5,12 +5,12 @@ class RolesController < ApplicationController
   def index
     @roles = Role.all
 
-    render json: @roles
+    render json: RoleSerializer.new(@roles).serialized_json
   end
 
   # GET /roles/1
   def show
-    render json: @role
+    render json: RoleSerializer.new(@role).serialized_json
   end
 
   # POST /roles

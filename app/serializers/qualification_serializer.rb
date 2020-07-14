@@ -1,3 +1,4 @@
-class QualificationSerializer < ActiveModel::Serializer
-  attributes :id, :qualification, :status
+class QualificationSerializer
+	include FastJsonapi::ObjectSerializer
+	attributes :id, :qualification, :status
 end

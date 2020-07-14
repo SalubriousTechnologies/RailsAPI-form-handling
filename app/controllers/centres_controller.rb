@@ -5,12 +5,12 @@ class CentresController < ApplicationController
   def index
     @centres = Centre.all
 
-    render json: @centres
+    render json: CentreSerializer.new(@centres).serialized_json
   end
 
   # GET /centres/1
   def show
-    render json: @centre
+    render json: CentreSerializer.new(@centre).serialized_json
   end
 
   # POST /centres
