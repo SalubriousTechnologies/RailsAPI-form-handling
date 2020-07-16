@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_13_065004) do
+ActiveRecord::Schema.define(version: 2020_07_16_081001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -145,6 +145,41 @@ ActiveRecord::Schema.define(version: 2020_07_13_065004) do
     t.index ["country_id"], name: "index_states_on_country_id"
   end
 
+  create_table "temp_users", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "password_digest"
+    t.bigint "mobile"
+    t.bigint "alternate_contact_no"
+    t.date "dob"
+    t.string "address"
+    t.bigint "city_id"
+    t.bigint "state_id"
+    t.bigint "country_id"
+    t.integer "pincode"
+    t.string "default_language"
+    t.bigint "doctor_category_id"
+    t.string "role"
+    t.string "medical_registration_no"
+    t.string "registration_state"
+    t.integer "registration_year"
+    t.text "work_experience"
+    t.text "detailed_experience"
+    t.text "awards_n_achievements"
+    t.text "summary"
+    t.integer "is_qualified_mso"
+    t.text "remark"
+    t.integer "approval_status"
+    t.bigint "approved_by"
+    t.datetime "approved_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["city_id"], name: "index_temp_users_on_city_id"
+    t.index ["country_id"], name: "index_temp_users_on_country_id"
+    t.index ["doctor_category_id"], name: "index_temp_users_on_doctor_category_id"
+    t.index ["state_id"], name: "index_temp_users_on_state_id"
+    t.index ["user_id"], name: "index_temp_users_on_user_id"
+  end
+
   create_table "user_id_proofs", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "id_proof_id", null: false
@@ -240,6 +275,11 @@ ActiveRecord::Schema.define(version: 2020_07_13_065004) do
   add_foreign_key "role_sections", "roles"
   add_foreign_key "role_sections", "sections"
   add_foreign_key "states", "countries"
+  add_foreign_key "temp_users", "cities"
+  add_foreign_key "temp_users", "countries"
+  add_foreign_key "temp_users", "doctor_categories"
+  add_foreign_key "temp_users", "states"
+  add_foreign_key "temp_users", "users"
   add_foreign_key "user_id_proofs", "id_proofs"
   add_foreign_key "user_id_proofs", "users"
   add_foreign_key "user_qualifications", "qualifications"

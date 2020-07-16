@@ -4,7 +4,6 @@ class CentresController < ApplicationController
   # GET /centres
   def index
     @centres = Centre.all
-
     render json: CentreSerializer.new(@centres).serialized_json
   end
 

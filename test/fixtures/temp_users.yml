@@ -1,0 +1,55 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  password_digest: MyString
+  mobile: 
+  alternate_contact_no: 
+  dob: 2020-07-16
+  address: MyString
+  city: one
+  state: one
+  country: one
+  pincode: 1
+  default_language: MyString
+  doctor_category: one
+  role: MyString
+  medical_registration_no: MyString
+  registration_state: MyString
+  registration_year: 1
+  work_experience: MyText
+  detailed_experience: MyText
+  awards_n_achievements: MyText
+  summary: MyText
+  is_qualified_mso: 1
+  remark: MyText
+  approval_status: 1
+  approved_by: 
+  approved_at: 2020-07-16 13:40:02
+
+two:
+  user: two
+  password_digest: MyString
+  mobile: 
+  alternate_contact_no: 
+  dob: 2020-07-16
+  address: MyString
+  city: two
+  state: two
+  country: two
+  pincode: 1
+  default_language: MyString
+  doctor_category: two
+  role: MyString
+  medical_registration_no: MyString
+  registration_state: MyString
+  registration_year: 1
+  work_experience: MyText
+  detailed_experience: MyText
+  awards_n_achievements: MyText
+  summary: MyText
+  is_qualified_mso: 1
+  remark: MyText
+  approval_status: 1
+  approved_by: 
+  approved_at: 2020-07-16 13:40:02
