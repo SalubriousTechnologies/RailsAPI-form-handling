@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_16_081001) do
+ActiveRecord::Schema.define(version: 2020_08_05_193533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -267,6 +267,17 @@ ActiveRecord::Schema.define(version: 2020_07_16_081001) do
     t.index ["country_id"], name: "index_users_on_country_id"
     t.index ["doctor_category_id"], name: "index_users_on_doctor_category_id"
     t.index ["state_id"], name: "index_users_on_state_id"
+  end
+
+  create_table "visit_details", force: :cascade do |t|
+    t.string "chief_complaint"
+    t.integer "visit_id"
+    t.jsonb "complaint_details", default: "{}", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index "((complaint_details ->> 'associated_symptom'::text))", name: "associated_symptom_complaint_details_on_visit_details"
+    t.index ["chief_complaint"], name: "index_visit_details_on_chief_complaint"
+    t.index ["complaint_details"], name: "index_visit_details_on_complaint_details", using: :gin
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

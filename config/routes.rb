@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :visit_details
   resources :temp_users
   resources :sections
   resources :roles

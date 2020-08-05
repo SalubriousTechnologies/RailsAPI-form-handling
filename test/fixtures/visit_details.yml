@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  chief_complaint: MyString
+  visit_id: 1
+
+two:
+  chief_complaint: MyString
+  visit_id: 1
