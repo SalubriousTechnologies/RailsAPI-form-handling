@@ -3,7 +3,12 @@ class VisitDetailsController < ApplicationController
 
   # GET /visit_details
   def index
-    @visit_details = VisitDetail.all
+    if params
+      @visit_details = VisitDetail.where("complaint_details -> 'associated_symptom' ? :symptom", 
+        symptom: "#{params[:associated_symptom]}")
+    else
+      @visit_details = VisitDetail.all
+    end
 
     render json: @visit_details
   end
@@ -46,6 +51,6 @@ class VisitDetailsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def visit_detail_params
-      params.require(:visit_detail).permit(:chief_complaint, :visit_id, :complaint_details)
+      params.require(:visit_detail).permit(:chief_complaint, :visit_id, complaint_details: {})
     end
 end
