@@ -3,7 +3,7 @@ class VisitDetailsController < ApplicationController
 
   # GET /visit_details
   def index
-    if params
+    if params[:associated_symptom]
       @visit_details = VisitDetail.where("complaint_details -> 'associated_symptom' ? :symptom", 
         symptom: "#{params[:associated_symptom]}")
     else
